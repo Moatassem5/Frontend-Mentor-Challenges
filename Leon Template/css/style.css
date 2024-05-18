@@ -1,0 +1,504 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Start Variables */
+
+:root {
+  --main-color: #10cab7;
+  --secondary-color: #2c4755;
+  --pading-section: 60px;
+  --section-backgroung: #f6f6f6;
+  --main-duration: 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* End Variables */
+/* Start Components */
+
+.special-heading {
+  margin: 0;
+  font-size: 100px;
+  text-align: center;
+  letter-spacing: -3px;
+  color: #ebeced;
+  font-weight: 800;
+}
+
+.special-heading + p {
+  font-size: 20px;
+  text-align: center;
+  margin: -30px 0 0;
+  color: #797979;
+}
+
+@media (max-width: 767px) {
+  .special-heading {
+    font-size: 60px;
+  }
+  .special-heading + p {
+    margin-top: -20px;
+  }
+}
+
+/* End Components */
+
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Small screen */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium screen */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large screen */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/*End global reset */
+
+/* Start Header */
+
+.header {
+  padding: 20px;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .logo {
+  width: 60px;
+}
+
+.header .links {
+  position: relative;
+}
+
+.header .links:hover .icon span:nth-child(2) {
+  width: 100%;
+}
+
+.header .links .icon {
+  width: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.header .links .icon span {
+  background-color: #333;
+  margin-bottom: 5px;
+  height: 2px;
+}
+
+.header .links .icon span:first-child {
+  width: 100%;
+}
+
+.header .links .icon span:nth-child(2) {
+  width: 60%;
+  transition: var(--main-duration);
+}
+
+.header .links .icon span:last-child {
+  width: 100%;
+}
+/* UL setup Start*/
+
+.header .links ul {
+  list-style: none;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  min-width: 200px;
+  top: calc(100% + 15px);
+  background-color: var(--section-backgroung);
+  display: none;
+  z-index: 1;
+}
+
+.header .links:hover ul {
+  display: block;
+}
+
+.header .links ul::before {
+  content: "";
+  position: absolute;
+  border-width: 10px;
+  border-style: solid;
+  right: 5px;
+  top: -20px;
+  border-color: transparent transparent var(--section-backgroung) transparent;
+}
+
+.header .links li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  transition: var(--main-duration);
+  color: #333;
+}
+
+.header .links li a:hover {
+  padding-left: 25px;
+}
+
+.header .links ul li:not(:last-child) a {
+  border-bottom: 1px solid #ddd;
+}
+
+/* End Header */
+
+/* Start Landing SEC */
+.Landing {
+  background-image: url(../imgs/686998.jpg);
+  background-size: cover;
+  height: calc(100vh - 64px);
+  position: relative;
+}
+
+.Landing .intro-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 320px;
+  max-width: 100%;
+}
+.Landing .intro-text h1 {
+  margin: 0;
+  color: var(--main-color);
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.Landing .intro-text p {
+  line-height: 1.6;
+  font-size: 19px;
+}
+
+/* End Landing SEC */
+
+/* Start Features SEC */
+.Features {
+  background-color: var(--section-backgroung);
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.Features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.Features .feat {
+  text-align: center;
+  padding: 20px;
+}
+
+.Features .feat i {
+  color: var(--main-color);
+  font-size: 50px;
+}
+
+.Features .feat h3 {
+  font-weight: 800;
+  margin: 30px 0;
+}
+.Features .feat p {
+  line-height: 1.8;
+  font-size: 17px;
+  color: #777;
+}
+
+/* End Features SEC */
+
+/* Start Services SEC */
+.services {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.services .services-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 100px;
+}
+
+.services .services-content .srv {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 767px) {
+  .services .services-content .srv {
+    flex-direction: column;
+    text-align: center;
+  } /* End Services SEC */
+}
+
+.services .services-content .srv i {
+  font-size: 30px; /* cause we want to it to behavior like width and height in the mobile */
+  color: var(--main-color);
+  flex-basis: 60px;
+}
+
+.services .services-content .srv .text {
+  flex: 1;
+}
+
+.services .services-content .srv .text h3 {
+  margin: 0 0 20px;
+}
+
+.services .services-content .srv .text p {
+  color: #333;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.services .services-content .col3 {
+  position: relative;
+  text-align: center;
+}
+
+.services .services-content .col3::before {
+  content: "";
+  background-color: var(--secondary-color);
+  position: absolute;
+  width: 100px;
+  height: calc(100% + 100px);
+  right: 0;
+  top: -50px;
+  z-index: -1;
+}
+
+.services .services-content .img {
+  width: 260px;
+}
+
+@media (max-width: 1199px) {
+  .services .services-content .col3 {
+    display: none;
+  }
+}
+
+/* Start Portfolio SEC */
+
+.Portfolio {
+  background-color: var(--section-backgroung);
+  padding-top: var(--pading-section);
+  padding-bottom: var(--pading-section);
+}
+
+.Portfolio .portfolio-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 80px;
+}
+
+.Portfolio .portfolio-content .card {
+  background-color: white;
+}
+
+.Portfolio .portfolio-content .card img {
+  max-width: 100%;
+}
+
+.project-info {
+  padding: 20px;
+}
+
+.project-info h3 {
+  margin: 0;
+}
+
+.project-info p {
+  color: #777;
+  line-height: 1.6;
+}
+
+/* End Portfolio SEC */
+/* Start About SEC */
+
+.About {
+  padding-top: var(--pading-section);
+  padding-bottom: calc(var(--pading-section) + 60px);
+}
+
+.About-content {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+  .About-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.About-content .image {
+  width: 250px;
+  height: 375px;
+  position: relative;
+}
+
+@media (max-width: 991px) {
+  .About-content .image {
+    margin: 0 auto 60px;
+  }
+}
+.About-content .image::before {
+  content: "";
+  position: absolute;
+  background-color: #ebeced;
+  width: 100px;
+  height: calc(100% + 80px);
+  top: -40px;
+  left: -20px;
+  z-index: -1;
+}
+
+.About-content .image::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  top: -40px;
+  height: 300px;
+  z-index: -1;
+  border-bottom: 80px solid var(--main-color);
+  border-left: 80px solid var(--main-color);
+  right: -150px;
+}
+
+@media (max-width: 991px) {
+  .About-content .image::before,
+  .About-content .image::after {
+    display: none;
+  }
+}
+
+.About-content .flower-imge {
+  max-width: 100%;
+}
+
+.About-content .text {
+  flex-basis: calc(100% - 500px);
+}
+
+.About-content .text p:first-of-type {
+  font-weight: bold;
+  line-height: 2;
+  margin-bottom: 50px;
+}
+.About-content .text hr {
+  width: 50%;
+  border-color: var(--main-color);
+  display: inline-block;
+}
+.About-content .text p:last-of-type {
+  line-height: 2;
+  color: #777;
+}
+
+/* End About SEC */
+
+/* Start Contact SEc */
+
+.Contacts {
+  padding-top: var(--pading-section);
+  padding-bottom: calc(var(--pading-section) + 60px);
+  background-color: var(--section-backgroung);
+}
+
+.info {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.info p {
+  font-size: 35px;
+  letter-spacing: -2px;
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.info a {
+  display: block;
+  text-decoration: none;
+  font-size: 35px;
+  font-weight: 800;
+  color: var(--main-color);
+}
+
+@media (max-width: 767px) {
+  .info a,
+  .info p {
+    font-size: 25px;
+  }
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.C-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--secondary-color);
+}
+
+/* End Contact SEc */
+
+/* Start Footer */
+footer {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 30px 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+footer strong {
+  color: var(--main-color);
+}
+/* End Footer */
