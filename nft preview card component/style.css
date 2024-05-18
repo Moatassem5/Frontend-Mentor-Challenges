@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(217, 54%, 11%);
+  font-family: "Outfit", sans-serif;
+}
+
+.container {
+  width: 270px;
+  margin: 50px auto;
+  box-shadow: 0px 20px 10px 10px hsl(217, 54%, 11%);
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-color: hsl(216, 50%, 16%);
+}
+
+.attribution {
+  color: hsl(215, 51%, 70%);
+  font-size: 14px;
+  margin-right: 2px;
+}
+
+.cube-img {
+  width: 230px;
+  height: 230px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.big-flex {
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.currency {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.time-box {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* Typography */
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.discription {
+  color: hsl(215, 51%, 70%);
+  margin-bottom: 15px;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.cyan-text {
+  color: hsl(178, 100%, 50%);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.time {
+  color: hsl(215, 51%, 70%);
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.line {
+  width: 230px;
+  border-bottom: 0.2px solid hsl(215, 51%, 70%);
+  margin-bottom: 15px;
+}
+
+.small-flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatar-image {
+  width: 30px;
+  border: 1px solid hsl(0, 0%, 100%);
+  border-radius: 50%;
+}
+
+.link:link,
+.link:visited {
+  text-decoration: none;
+  color: hsl(0, 0%, 100%);
+  font-size: 14px;
+}
