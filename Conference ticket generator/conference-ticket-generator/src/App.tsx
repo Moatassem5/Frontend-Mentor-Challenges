@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import TicketComponent from "./components/Ticket";
 // We will split the website layers into 3 layers
 // [1- For Background] , [2- For SVG's], [3- For Content]
 function App() {
@@ -43,11 +44,13 @@ function App() {
             className="absolute bottom-[10%] left-2 lg:bottom-[-50px] lg:left-7 lg:w-[500px] md:w-[600px] sm:w-[500px] sm:bottom-[-100px]"
           />
         </div>
+        {/* -------------------------------------- */}
+        {/* Content Layer (z-index:10) */}
         <div className="relative z-10">
           <Header />
+          <TicketComponent/>
         </div>
       </div>
-      {/* Styles for lg: absolute bottom-[-400px] */}
     </>
   );
 }
