@@ -3,7 +3,7 @@ const Header = function () {
     <>
       <img
         src="./public/assets/images/logo-full.svg"
-        className="mx-auto mt-7 w-[40%]  md:w-[13%]"
+        className="mx-auto mt-7 w-[40%]  md:w-[15%]"
         alt="Logo"
       />
 
