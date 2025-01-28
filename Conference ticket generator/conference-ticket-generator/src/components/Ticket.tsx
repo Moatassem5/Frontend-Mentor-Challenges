@@ -1,7 +1,9 @@
 // We will make a wrapper before the SVG the wrapper will be positioned relative , and the background will be the relative one
 // Then we got the content in absloute Positioning form
 const TicketComponent = function () {
-  
+  // After Every Submit this Function will be called to Generate A random Number
+  let random_num = Math.floor(Math.random() * 100000);
+
   return (
     <>
       <div className="relative mx-auto mt-16 w-[95%] md:mt-24 md:w-[600px]">
@@ -46,6 +48,11 @@ const TicketComponent = function () {
               </div>
             </div>
           </main>
+          <div className="serial absolute right-0 bottom-24 md:bottom-32 ">
+            <p className="rotate-90 text-neutral-400 text-[30px]">
+              #{random_num}
+            </p>
+          </div>
         </div>
       </div>
     </>
