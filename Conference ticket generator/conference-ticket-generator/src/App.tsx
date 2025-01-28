@@ -1,5 +1,6 @@
 import Header from "./components/Header";
-import TicketComponent from "./components/Ticket";
+import ImageUpload from "./components/ImageUploader";
+// import TicketComponent from "./components/Ticket";
 // We will split the website layers into 3 layers
 // [1- For Background] , [2- For SVG's], [3- For Content]
 function App() {
@@ -48,7 +49,7 @@ function App() {
         {/* Content Layer (z-index:10) */}
         <div className="relative z-10">
           <Header />
-          <TicketComponent/>
+          <ImageUpload/>
         </div>
       </div>
     </>
