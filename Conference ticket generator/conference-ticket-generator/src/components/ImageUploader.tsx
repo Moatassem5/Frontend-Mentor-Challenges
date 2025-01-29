@@ -31,47 +31,50 @@ const ImageUpload = ({ onImageUpload }: ImageUploadProps) => {
 
   return (
     <>
-      <div
-        onClick={() => imageRef.current?.click()}
-        className="upload-wrapper lg:w-[25rem] lg:mt-6 lg:py-7 cursor-pointer backdrop-filter backdrop-blur-sm bg-white/10 mt-3 mb-3 border-2 border-dashed w-[250px] px-[30px] py-2 rounded-md border-neutral-500 mx-auto flex flex-col items-center justify-center"
-      >
-        {preview ? (
-          <img
-            src={preview}
-            alt="Preview"
-            className="max-h-full object-contain"
-          />
-        ) : (
-          <div className="text-center text-neutral-500">
-            <div className="mx-auto mb-3 bg-slate-400/20 backdrop-filter backdrop-blur-md w-fit lg:p-2 p-1 rounded-lg">
-              <img
-                src="./public/assets/images/icon-upload.svg"
-                alt="Upload Image"
-                className="cursor-pointer"
-              />
+      <div className="flex flex-col items-start w-fit mx-auto">
+        <p className="text-white text-sm lg:text-[19px]">Upload Avatar</p>
+        <div
+          onClick={() => imageRef.current?.click()}
+          className="upload-wrapper lg:w-[25rem] lg:mt-2 lg:py-7 cursor-pointer backdrop-filter backdrop-blur-sm bg-white/10 mt-2 mb-3 border-2 border-dashed w-[250px] px-[30px] py-2 rounded-md border-neutral-500 mx-auto flex flex-col items-center justify-center"
+        >
+          {preview ? (
+            <img
+              src={preview}
+              alt="Preview"
+              className="max-h-full object-contain"
+            />
+          ) : (
+            <div className="text-center text-neutral-500">
+              <div className="mx-auto mb-3 bg-slate-400/20 backdrop-filter backdrop-blur-md w-fit lg:p-2 p-1 rounded-lg">
+                <img
+                  src="./public/assets/images/icon-upload.svg"
+                  alt="Upload Image"
+                  className="cursor-pointer"
+                />
+              </div>
+              <p className="text-white text-[13px] lg:text-[15px]">
+                click here to select Image
+              </p>
             </div>
-            <p className="text-white text-[13px] lg:text-[15px]">
-              click here to select Image
-            </p>
-          </div>
+          )}
+        </div>
+        <input
+          type="file"
+          ref={imageRef}
+          onChange={onImageChange}
+          accept="image/*"
+          className="hidden"
+        />
+        {preview && (
+          <button
+            type="button"
+            onClick={onImageDelete}
+            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500"
+          >
+            Delete Image
+          </button>
         )}
       </div>
-      <input
-        type="file"
-        ref={imageRef}
-        onChange={onImageChange}
-        accept="image/*"
-        className="hidden"
-      />
-      {preview && (
-        <button
-          type="button"
-          onClick={onImageDelete}
-          className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500"
-        >
-          Delete Image
-        </button>
-      )}
     </>
   );
 };
