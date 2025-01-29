@@ -7,6 +7,7 @@ import { useState } from "react";
 import ImageUpload from "./ImageUploader";
 import DataForm from "./DataForm";
 import TicketComponent from "./Ticket";
+import Header from "./Header";
 
 interface FormTypes {
   image: File | null;
@@ -45,20 +46,25 @@ const ParentForm = () => {
 
   return (
     <div className="px-4 py-8">
-      {!isFormSubmitted ? (
-        <div className="max-w-2xl mx-auto">
-          <ImageUpload onImageUpload={handleimageState} />
-          <DataForm onSubmit={handleFormSubmit} image={formData.image} />
-        </div>
-      ) : (
-        <TicketComponent
-          fullName={formData.Full_name}
-          githubUsername={formData.Github_Username}
-          image={formData.image}
-        />
-      )}
-    </div>
-  );
+    <Header 
+      isFormSubmitted={isFormSubmitted}
+      fullName={formData.Full_name}
+      emailAddress={formData.Email_Address}
+    />
+    {!isFormSubmitted ? (
+      <div className="max-w-2xl mx-auto">
+        <ImageUpload onImageUpload={handleimageState} />
+        <DataForm onSubmit={handleFormSubmit} image={formData.image} />
+      </div>
+    ) : (
+      <TicketComponent
+        fullName={formData.Full_name}
+        githubUsername={formData.Github_Username}
+        image={formData.image}
+      />
+    )}
+  </div>
+);
 };
 
 export default ParentForm;

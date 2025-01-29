@@ -20,7 +20,7 @@ const TicketComponent = function ({
 
   return (
     <>
-      <div className="relative mx-auto mt-16 w-[95%] md:mt-24 md:w-[600px]">
+      <div className="relative mx-auto mt-4 lg:mt-16 w-full md:mt-24 md:w-[600px]">
         {/* Background Layer */}
         <img
           className="w-full"
@@ -42,13 +42,13 @@ const TicketComponent = function ({
             Feb 31, 2025 / Austin, TX
           </p>
 
-          <main className="text-red-50 inset-0 mt-5 p-4 sm:p-6 md:p-8  lg:ml-[-30px] ">
+          <main className="text-red-50 inset-0 mt-1 lg:mt-8 p-4 sm:p-6 md:p-8  lg:ml-[-30px] ">
             <div className="container flex gap-2 items-center">
               <div className="image">
                 <img
                   src={imageUrl}
                   alt="Customer-Avatar"
-                  className="rounded-lg w-[100px]"
+                  className="rounded-lg w-[100px] "
                 />
               </div>
               <div>
@@ -63,8 +63,8 @@ const TicketComponent = function ({
               </div>
             </div>
           </main>
-          <div className="serial absolute right-0 bottom-24 md:bottom-32 ">
-            <p className="rotate-90 text-neutral-400 text-[30px]">
+          <div className="serial absolute right-0 bottom-16  md:bottom-32 ">
+            <p className="rotate-90 text-neutral-400 lg:text-[30px] text-[25px]">
               #{random_num}
             </p>
           </div>
