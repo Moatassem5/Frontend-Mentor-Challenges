@@ -1,8 +1,16 @@
 // We will make a wrapper before the SVG the wrapper will be positioned relative , and the background will be the relative one
 // Then we got the content in absloute Positioning form
-const TicketComponent = function () {
+
+interface TicketProps {
+  fullName: string;
+  githubUsername: string;
+  image: File | null;
+}
+
+const TicketComponent = function ({ fullName, githubUsername, image }: TicketProps) {
   // After Every Submit this Function will be called to Generate A random Number
   let random_num = Math.floor(Math.random() * 100000);
+  const imageUrl = image ? URL.createObjectURL(image) : '/assets/images/logo-mark.svg';
 
   return (
     <>
@@ -17,7 +25,7 @@ const TicketComponent = function () {
         <div className="Ticket-content absolute inset-0 p-4 sm:p-6 md:p-8">
           <div className="header-logo flex items-center gap-3">
             <img
-              src="./public/assets/images/logo-mark.svg"
+              src={imageUrl}
               alt="Company-Logo"
             />
             <p className="text-white font-bold text-[25px] md:text-[40px]">
@@ -37,13 +45,13 @@ const TicketComponent = function () {
                 />
               </div>
               <div>
-                <p>Name</p>
+                <p>{fullName}</p>
                 <div className="flex gap-1">
                   <img
                     src="./public/assets/images/icon-github.svg"
                     alt="github-icon"
                   />
-                  Github username
+                  {githubUsername}
                 </div>
               </div>
             </div>

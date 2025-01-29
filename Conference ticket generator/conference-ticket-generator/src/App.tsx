@@ -1,5 +1,4 @@
 import Header from "./components/Header";
-import ImageUpload from "./components/ImageUploader";
 import ParentForm from "./components/ParentForm";
 // import TicketComponent from "./components/Ticket";
 // We will split the website layers into 3 layers
@@ -50,7 +49,7 @@ function App() {
         {/* Content Layer (z-index:10) */}
         <div className="relative z-10">
           <Header />
-         <ImageUpload/>
+         <ParentForm/>
         </div>
       </div>
     </>

@@ -4,9 +4,9 @@
 // -----------------------------------------------------------
 
 import { useState } from "react";
-// import TicketComponent from "./Ticket";
-// import ImageUpload from "./components/ImageUploader";
-// import DataForm from "./DataForm";
+import TicketComponent from "./Ticket";
+import ImageUpload from "./ImageUploader";
+import DataForm from "./DataForm";
 
 // We will use this interface as a wraper to validate over the 2 Child Components at once
 interface FormTypes {
@@ -24,21 +24,41 @@ const ParentForm = () => {
     Github_Username: "",
   });
 
-  const [isFormSubmitted ,setisFormSubmitted ] = useState(false)
+  const [isFormSubmitted, setisFormSubmitted] = useState(false);
 
-  const handleimageState = function(file:File){
-    setFormData((previousState)=>({...previousState , image:file}))
-  }
+  const handleimageState = function (file: File) {
+    setFormData((previousState) => ({ ...previousState, image: file }));
+  };
 
-  
-  // const handleFormSubmit = function(submitted:File){
-  //   setFormData((previousState)=>({...previousState , image:file}))
-  // }
+  const handleFormSubmit = function (formSubmitData: {
+    fullName: string;
+    emailAddress: string;
+    githubUsername: string;
+  }) {
+    setFormData((previousState) => ({
+      ...previousState,
+      Full_name: formSubmitData.fullName,
+      Email_Address: formSubmitData.emailAddress,
+      Github_Username: formSubmitData.githubUsername,
+    }));
+    setisFormSubmitted(true);
+  };
 
   return (
-    <>
-      <form action=""></form>
-    </>
+    <div className="px-4 py-8">
+      {!isFormSubmitted ? (
+        <div className="max-w-2xl mx-auto">
+          <ImageUpload onImageUpload={handleimageState} />
+          <DataForm onSubmit={handleFormSubmit} />
+        </div>
+      ) : (
+        <TicketComponent
+          fullName={formData.Full_name}
+          githubUsername={formData.Github_Username}
+          image={formData.image}
+        />
+      )}
+    </div>
   );
 };
 
