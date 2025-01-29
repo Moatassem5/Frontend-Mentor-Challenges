@@ -4,11 +4,10 @@
 // -----------------------------------------------------------
 
 import { useState } from "react";
-import TicketComponent from "./Ticket";
 import ImageUpload from "./ImageUploader";
 import DataForm from "./DataForm";
+import TicketComponent from "./Ticket";
 
-// We will use this interface as a wraper to validate over the 2 Child Components at once
 interface FormTypes {
   image: File | null;
   Full_name: string;
@@ -49,7 +48,7 @@ const ParentForm = () => {
       {!isFormSubmitted ? (
         <div className="max-w-2xl mx-auto">
           <ImageUpload onImageUpload={handleimageState} />
-          <DataForm onSubmit={handleFormSubmit} />
+          <DataForm onSubmit={handleFormSubmit} image={formData.image} />
         </div>
       ) : (
         <TicketComponent

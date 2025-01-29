@@ -7,10 +7,16 @@ interface TicketProps {
   image: File | null;
 }
 
-const TicketComponent = function ({ fullName, githubUsername, image }: TicketProps) {
+const TicketComponent = function ({
+  fullName,
+  githubUsername,
+  image,
+}: TicketProps) {
   // After Every Submit this Function will be called to Generate A random Number
   let random_num = Math.floor(Math.random() * 100000);
-  const imageUrl = image ? URL.createObjectURL(image) : '/assets/images/logo-mark.svg';
+  const imageUrl = image
+    ? URL.createObjectURL(image)
+    : "/assets/images/logo-mark.svg";
 
   return (
     <>
@@ -25,7 +31,7 @@ const TicketComponent = function ({ fullName, githubUsername, image }: TicketPro
         <div className="Ticket-content absolute inset-0 p-4 sm:p-6 md:p-8">
           <div className="header-logo flex items-center gap-3">
             <img
-              src={imageUrl}
+              src="./public/assets/images/logo-mark.svg"
               alt="Company-Logo"
             />
             <p className="text-white font-bold text-[25px] md:text-[40px]">
@@ -40,8 +46,9 @@ const TicketComponent = function ({ fullName, githubUsername, image }: TicketPro
             <div className="container flex gap-2 items-center">
               <div className="image">
                 <img
-                  src="./public/assets/images/logo-mark.svg"
+                  src={imageUrl}
                   alt="Customer-Avatar"
+                  className="rounded-lg w-[100px]"
                 />
               </div>
               <div>

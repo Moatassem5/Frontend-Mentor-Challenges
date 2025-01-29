@@ -8,19 +8,16 @@ interface DataFormProps {
     emailAddress: string;
     githubUsername: string;
   }) => void;
+  image: File | null;
 }
 
-const DataForm = ({ onSubmit }: DataFormProps) => {
+const DataForm = ({ onSubmit, image }: DataFormProps) => {
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     fullName: "",
     emailAddress: "",
     githubUsername: "",
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit(formData);
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
@@ -29,16 +26,23 @@ const DataForm = ({ onSubmit }: DataFormProps) => {
     }));
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!image) {
+      setError("Please upload an image first");
+      return;
+    }
+    setError(null);
+    onSubmit(formData);
+  };
+
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-6 flex flex-col items-center w-full mx-auto mt-3  "
-    >
+    <form onSubmit={handleSubmit} className="space-y-6 flex flex-col items-center w-full mx-auto mt-3">
+      {error && (
+        <div className="text-red-500 text-sm mb-2">{error}</div>
+      )}
       <div>
-        <label
-          htmlFor="fullName"
-          className="block text-white text-sm lg:text-[19px] mb-2"
-        >
+        <label htmlFor="fullName" className="block text-white text-sm lg:text-[19px] mb-2">
           Full Name
         </label>
         <input
@@ -48,14 +52,11 @@ const DataForm = ({ onSubmit }: DataFormProps) => {
           value={formData.fullName}
           onChange={handleChange}
           required
-          className="w-[350px] lg:w-[30rem] p-3 rounded-lg backdrop-filter backdrop-blur-sm bg-white/10 text-white"
+          className="w-[350px] lg:w-[30rem] p-3 rounded-lg backdrop-filter backdrop-blur-sm focus:border-white focus:outline-white bg-white/10 text-white"
         />
       </div>
       <div>
-        <label
-          htmlFor="emailAddress"
-          className="block text-white text-sm lg:text-[19px] mb-2"
-        >
+        <label htmlFor="emailAddress" className="block text-white text-sm lg:text-[19px] mb-2">
           Email Address
         </label>
         <input
@@ -64,15 +65,13 @@ const DataForm = ({ onSubmit }: DataFormProps) => {
           name="emailAddress"
           value={formData.emailAddress}
           onChange={handleChange}
+          placeholder="example@email.com"
           required
-          className="w-[350px] lg:w-[30rem] p-3 rounded-lg backdrop-filter backdrop-blur-sm bg-white/10 text-white"
+          className="w-[350px] lg:w-[30rem] p-3 rounded-lg backdrop-filter backdrop-blur-sm focus:border-white focus:outline-white bg-white/10 text-white"
         />
       </div>
       <div>
-        <label
-          htmlFor="githubUsername"
-          className="block text-white text-sm lg:text-[19px] mb-2"
-        >
+        <label htmlFor="githubUsername" className="block text-white text-sm lg:text-[19px] mb-2">
           Github Username
         </label>
         <input
@@ -81,8 +80,9 @@ const DataForm = ({ onSubmit }: DataFormProps) => {
           name="githubUsername"
           value={formData.githubUsername}
           onChange={handleChange}
+          placeholder="@yourusername"
           required
-          className="w-[350px] lg:w-[30rem] p-3 rounded-lg backdrop-filter backdrop-blur-sm bg-white/10 text-white"
+          className="w-[350px] lg:w-[30rem] p-3 rounded-lg backdrop-filter backdrop-blur-sm bg-white/10 text-white focus:border-white focus:outline-white"
         />
       </div>
       <button
