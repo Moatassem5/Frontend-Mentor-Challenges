@@ -35,7 +35,7 @@ const ImageUpload = ({ onImageUpload }: ImageUploadProps) => {
         <p className="text-white text-sm lg:text-[19px]">Upload Avatar</p>
         <div
           onClick={() => imageRef.current?.click()}
-          className="upload-wrapper lg:w-[25rem] lg:mt-2 lg:py-7 cursor-pointer backdrop-filter backdrop-blur-sm bg-white/10 mt-2 mb-3 border-2 border-dashed w-[250px] px-[30px] py-2 rounded-md border-neutral-500 mx-auto flex flex-col items-center justify-center"
+          className="upload-wrapper  lg:w-[25rem] lg:mt-2 lg:py-7 cursor-pointer backdrop-filter backdrop-blur-sm bg-white/10 mt-2 mb-3 border-2 border-dashed w-[350px] px-[30px] py-2 rounded-md border-neutral-500 mx-auto flex flex-col items-center justify-center"
         >
           {preview ? (
             <img
@@ -74,6 +74,12 @@ const ImageUpload = ({ onImageUpload }: ImageUploadProps) => {
             Delete Image
           </button>
         )}
+        <div className="flex justify-center items-center gap-2">
+          <img src="./public/assets/images/icon-info.svg" alt="info-icon" />
+          <span className="text-neutral-400 text-sm">
+            Upload your photo (JPG or PNG, max Size: 500KB).
+          </span>
+        </div>
       </div>
     </>
   );
