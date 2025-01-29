@@ -3,11 +3,12 @@
 
 // -----------------------------------------------------------
 
-// import { useState } from "react";
+import { useState } from "react";
 // import TicketComponent from "./Ticket";
 // import ImageUpload from "./components/ImageUploader";
 // import DataForm from "./DataForm";
 
+// We will use this interface as a wraper to validate over the 2 Child Components at once
 interface FormTypes {
   image: File | null;
   Full_name: string;
@@ -15,13 +16,30 @@ interface FormTypes {
   Github_Username: string;
 }
 
+const ParentForm = () => {
+  const [formData, setFormData] = useState<FormTypes>({
+    image: null,
+    Full_name: "",
+    Email_Address: "",
+    Github_Username: "",
+  });
 
-const ParentForm = ()=>{
-  return(
+  const [isFormSubmitted ,setisFormSubmitted ] = useState(false)
+
+  const handleimageState = function(file:File){
+    setFormData((previousState)=>({...previousState , image:file}))
+  }
+
+  
+  // const handleFormSubmit = function(submitted:File){
+  //   setFormData((previousState)=>({...previousState , image:file}))
+  // }
+
+  return (
     <>
-    <div></div>
+      <form action=""></form>
     </>
-  )
-}
+  );
+};
 
-export default ParentForm
+export default ParentForm;

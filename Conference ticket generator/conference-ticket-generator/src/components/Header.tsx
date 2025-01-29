@@ -11,7 +11,7 @@ const Header = function () {
         Your Journey to Coding Conf <br /> 2025 Starts Here!
       </h1>
 
-      <p className="text-neutral-200 text-center text-balance mt-7 font-light md:text-[20px]">
+      <p className="mb-10 text-neutral-200 text-center text-balance mt-7 font-light md:text-[20px]">
         Secure your spot at next year's biggest coding conference.
       </p>
     </>
